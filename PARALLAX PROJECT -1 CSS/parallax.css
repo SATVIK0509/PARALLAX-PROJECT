@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+#wrapper{
+    height: 100vh;
+    /* 100% of viewport height */
+    /* sara content wrapper me ana chahiye to uski height viewport ke equal kar do */
+    overflow-x: hidden;
+    /* x direction me flow nahi chahiye */
+    overflow-y: auto;
+    /* y direction me chahiye */
+
+    perspective: 10px;
+    /* z axis me khelne ke liye */
+}
+
+.container{
+    /* container me 2 flex items hai i.e 2 images */
+    position: relative;
+    /* to overlap the images (age piche aa jay jab hum absolute use karegne image me) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* items ko center me kar diya */
+    height: 100%;
+    /* apne parent wrapper ke hisab se 100% de di height */
+    transform-style: preserve-3d;
+    /* to preserve the 3d or parallax effect */
+    z-index: -1;
+    /* kon si chiz kiske upar ayegi order wise jaisi likhi hai html code me */
+}
+
+.background, .foreground{
+
+    position: absolute;
+    /* ise use karne ke liye container ko relative kia */
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /* adventure apni jagah pe aa gaya. to maintain the order   */
+
+    object-fit: cover;
+    /* image or video resize itself to fit  in container . waise kuch farak pada nahi (good practice ke liye)*/
+
+
+}
+
+.background{
+
+    transform: translateZ(-40px) scale(6);
+    /* translate se backround image ko dur le gay . to 
+    ab scale bhi to karna padega */
+}
+
+.foreground{
+    transform: translateZ(-20px) scale(3);
+    /* movement of adventure < foreground(admi) < backround(mountain) */
+}
+
+h1{
+    position: absolute;
+    top: 5rem;
+    /* or 5*16 = 80px */
+
+    font-size: 10rem;
+    letter-spacing: 4px;
+    color: white;
+
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+
+section{
+
+    background-color: black;
+    color: white;
+
+}
+
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+
+/* FORMATING TEXTS */
+
+
+.secheading{
+    font-size: 5rem;
+    padding: 5rem 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+
+}
+
+/* SETING OF BACKROUND IMAGE */
+
+.bg{
+    position: relative;
+    /* to place the heading on top of image we have to use absolute positioning  */
+    width: 100%;
+    /* puri image chahiye viewport pe */
+    height: 500px;
+    background-attachment: fixed;
+    /* to fix the backround image */
+    background-position: center;
+    /* to center the image wrt to height */
+    background-size: cover;
+    /* to fit in the div container as its height */
+
+}
+
+/* IMAGE HEADING */
+.desc{
+
+    position: absolute;
+    /* wrt to div as it is overlapping on backround image */
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+
+    transform: translateX(-50%);
+
+}
